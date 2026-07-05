@@ -67,7 +67,7 @@ img { max-width: 100%; }
 
 /* ---- 프로젝트 ---- */
 .filters { font-size: 13px; padding: 6px 0 2px; }
-.filters button { border: none; background: none; color: var(--muted); cursor: pointer; padding: 0; margin-right: 14px; font-size: 13px; }
+.filters button { border: none; background: none; color: var(--muted); cursor: pointer; padding: 0; margin-right: 24px; font-size: 13px; }
 .filters button:hover { color: var(--text); }
 .filters button.on { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 .filters input { float: right; width: 130px; border: none; border-bottom: 1px solid var(--border); font-size: 12px; padding: 2px 0; background: none; color: var(--text); }
@@ -99,6 +99,8 @@ img { max-width: 100%; }
 .project[open] .body { animation: open 0.18s ease; }
 @keyframes open { from { opacity: 0; } }
 .project .body p { font-size: 14px; color: var(--text); }
+.project .field { font-weight: 600; font-size: 13px; }
+.project .field .cat { font-weight: 600; }
 /* 본문 사진: 높이만 고정, 너비는 원본 비율대로. 클릭하면 크게 보기 */
 .project .photos { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
 .project .photos img { height: 100px; width: auto; cursor: zoom-in; display: block; }
@@ -144,8 +146,8 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
   <div>
     <p>
       I am a senior in electrical engineering at <a href="https://www.postech.ac.kr"><strong>POSTECH</strong></a> and the founder of <a href="https://www.lutracorp.com"><strong>Lutra Inc.</strong></a>
-      I enjoy designing technology so that its benefits truly reach people. For that, I believe
-      technology should be transparent, understandable to anyone, and intuitive enough to be trusted.
+      I enjoy designing technology whose benefits truly reach people. That, I believe, requires
+      technology to be transparent, understandable to anyone, and intuitive enough to be trusted.
       This perspective has guided me through dozens of industry projects and competitions.
     </p>
     <p>
@@ -181,25 +183,26 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
 </ul>
 
 <h2 id="projects">Projects</h2>
-<p class="small">Twelve projects, one formula: technology &times; <span class="cat trust">trust</span>, <span class="cat identity">identity</span>, <span class="cat access">accessibility</span>, or <span class="cat play">play</span>.</p>
+<p>Twelve cases where technology builds social <span class="cat trust">trust</span>, protects a person's <span class="cat identity">identity</span>, strengthens <span class="cat access">accessibility</span>, or creates new kinds of <span class="cat play">play</span>. Click any project for details and photos.</p>
 <div class="filters">
   <button class="on" data-v="all">All</button>
-  <button data-v="trust">Trust</button>
-  <button data-v="identity">Identity</button>
-  <button data-v="access">Accessibility</button>
-  <button data-v="play">Play</button>
+  <button data-v="ai">AI</button>
+  <button data-v="blockchain">Blockchain</button>
+  <button data-v="robotics">Robotics</button>
+  <button data-v="web">Web</button>
 </div>
 
 <!-- ============ PROJECT TEMPLATE (복사해서 쓰세요) ============ -->
-<details class="project" data-img="hoa" data-v="trust">
+<details class="project" data-img="hoa" data-v="blockchain">
   <summary>
     <div class="thumb"><img src="img/proj/hoa.jpg" alt="HOA Camera" loading="lazy" onerror="this.remove()"></div>
     <div>
       <div class="title">How to trust a photo in the age of AI</div>
-      <div class="meta">Lutra, 2026. HOA Camera. Patent KR 10-2614829. <span class="cat trust">Trust</span></div>
+      <div class="meta">Lutra, 2026. HOA Camera. Patent KR 10-2614829.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Blockchain × <span class="cat trust">Trust</span></p>
     <p>There are two ways to fight fake images: detection and provenance. Detection is a losing race, and provenance is stricter and extends beyond photos to any data, text, audio, or video. HOA takes the provenance path: the camera cryptographically signs sensor data the instant a photo is taken and anchors its origin on a blockchain, so a real photograph can prove where it came from.</p>
     <p>Rather than releasing the technology alone, we built it into a designed camera to make it tangible. Unveiled at TechCrunch Disrupt 2025, where it drew interest from companies including Sony. Now in production, launching October 2026, with open verification tools to follow (<a href="https://www.hoa.camera">hoa.camera</a>).</p>
     <div class="photos"></div>
@@ -207,90 +210,96 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
 </details>
 <!-- ============ /PROJECT TEMPLATE ============ -->
 
-<details class="project" data-img="artist" data-v="identity">
+<details class="project" data-img="artist" data-v="ai">
   <summary>
     <div class="thumb"><img src="img/proj/artist.jpg" alt="Artist-side AI" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">An AI painting assistant that preserves the artist’s identity</div>
-      <div class="meta">Lutra, 2025. Tech licensing to Urban Complex. <span class="cat identity">Identity</span></div>
+      <div class="title">Artists’ AI agent that preserves their identity</div>
+      <div class="meta">Lutra, 2025. Tech licensing to Urban Complex.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Diffusion AI × <span class="cat identity">Identity</span></p>
     <p>Artists who use AI face the question from both sides: they wonder “is this still my work?”, and others deny the authorship outright. Building on our image AI, we repositioned the model from a creative tool that produces to an assistant grounded in the artist’s own identity, where the artist defines the boundaries of style and permitted derivation.</p>
     <p>The technology was successfully licensed, and Urban Complex uses it in production today. Conducted as a joint TIPS R&amp;D project between a financial-engineering lab at Yonsei University and Urban Complex; as Urban Complex's technology partner, I served as PI and led the research.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="booth" data-v="identity">
+<details class="project" data-img="booth" data-v="ai">
   <summary>
     <div class="thumb"><img src="img/proj/booth.jpg" alt="Mascot photo booth" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">Image AI, between personalization and the uncanny</div>
-      <div class="meta">POSTECH, 2024. Capstone Design Project, 1st Place. <span class="cat identity">Identity</span></div>
+      <div class="title">Character personalization, at the edge of the uncanny</div>
+      <div class="meta">POSTECH, 2024. Capstone Design Project, 1st Place.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: AI Image Personalization × <span class="cat identity">Identity</span></p>
     <p>A Stable Diffusion (LoRA + ControlNet) booth that dresses an existing character in your look. The character’s own identity has to survive, so the real question was how far the resemblance should go: which features, from hairstyle down, make people recognize themselves without the result feeling wrong.</p>
     <p>With an HCI PhD researcher at KAIST, we ran about four months of consumer studies and surveys to find that point. Won 1st place in the POSTECH EE capstone design course, then commercialized as <a href="https://www.character-studio.com">Character Studio</a>.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="pagechips" data-v="access">
+<details class="project" data-img="pagechips" data-v="web">
   <summary>
     <div class="thumb"><img src="img/proj/pagechips.jpg" alt="PageChips" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">A SaaS web builder with accessibility built in</div>
-      <div class="meta">Lutra, 2024. PageChips. <span class="cat access">Accessibility</span></div>
+      <div class="title">A SaaS web builder with the accessibility even AI tools miss</div>
+      <div class="meta">Lutra, 2024. PageChips.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: SaaS Web × <span class="cat access">Accessibility</span></p>
     <p>Pages made with web builders routinely ignore web standards and accessibility. PageChips (chips.page) is a block-based SaaS builder that turns this around: every block ships with accessibility baked in, rules I learned first-hand while teaching at the Seoul National School for the Blind, so a page built fast is accessible by construction.</p>
     <p>It never reached mass adoption, but at the Goyang International Flower Fair 2024 it served visitors from their 20s to their 70s: over 40,000 people used its maps and guides.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="clam" data-v="play">
+<details class="project" data-img="clam" data-v="blockchain">
   <summary>
     <div class="thumb"><img src="img/proj/clam.jpg" alt="Clam NFT booth" loading="lazy" onerror="this.remove()"></div>
     <div>
       <div class="title">The safest, most joyful use of NFTs</div>
-      <div class="meta">Lutra, 2022. Clam. CES Innovation Award 2023. <span class="cat play">Play</span></div>
+      <div class="meta">Lutra, 2022. Clam. CES Innovation Award 2023.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: NFT × <span class="cat play">Play</span></p>
     <p>When NFTs were new, opaque, and hyped, with interest running high even among older generations, we chose to lead the technology’s popularization in a good direction: a joyful, safe form. The concept was simple, turning people’s experiences into digital keepsakes they truly own.</p>
     <p>Honored with a CES Innovation Award 2023 (Software &amp; Mobile Apps) as the youngest Korean honoree. After CES, we signed MOUs with the blockchain subsidiaries of KAKAO and NAVER, and the product grew into a photo-booth form, supplied to institutions and brands. Still running at <a href="https://www.clamspace.com">clamspace.com</a>.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="hyundai" data-v="trust">
+<details class="project" data-img="hyundai" data-v="ai">
   <summary>
     <div class="thumb"><img src="img/proj/hyundai.jpg" alt="EV range prediction" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">Predicting EV range: an accuracy problem or a UX problem?</div>
-      <div class="meta">Hyundai Motor Company, 2021. Big Data Team Internship. <span class="cat trust">Trust</span></div>
+      <div class="title">Can machine learning predict EV range? Or can UX?</div>
+      <div class="meta">Hyundai Motor Company, 2021. Big Data Team Internship.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Machine Learning × <span class="cat trust">Trust</span></p>
     <p>Range anxiety was a serious complaint: the dash says you can reach Busan, and the car stops near Daegu. I joined the big-data team to fix the Kona EV's range prediction with ML, and learned that perfect prediction is impossible, closer to forecasting stocks than measuring fuel. Studying how other makers’ interfaces handle this, I found they present short-horizon information built from the last minutes of driving, detailed enough that drivers see “it’s how I drive” rather than “the number is broken.”</p>
     <p>My analysis identified which factors influence range the most, and the conclusion was that the problem must be solved jointly with UX: give drivers verifiable, short-horizon information instead of a single unexplained number.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="face" data-v="identity" data-video="3:J1sftk8g5aE">
+<details class="project" data-img="face" data-v="ai" data-video="3:J1sftk8g5aE">
   <summary>
     <div class="thumb"><img src="img/proj/face.jpg" alt="Face and personality" loading="lazy" onerror="this.remove()"></div>
     <div>
       <div class="title">MBTI × Face: a machine-learning test</div>
-      <div class="meta">POSTECH, 2021. Undergraduate Research Program, Excellence Award. <span class="cat identity">Identity</span></div>
+      <div class="meta">POSTECH, 2021. Undergraduate Research Program, Excellence Award.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Machine Learning × <span class="cat identity">Identity</span></p>
     <p>“Physiognomy is just statistics,” people say. I tested the claim: MBTI-prediction models trained on celebrities’ photos and their publicly known types, reaching 76% accuracy on some traits.</p>
     <p>Then I dug into why. The signal was confidence in the photo, its mood, the backgrounds, how heavy the makeup: where you spend your time and how you present yourself correlates with personality and leaks into photos. Not the face itself, a data-driven caution against physiognomic AI.</p>
     <p>My role: leading the team, framing the research topic and direction, automating the face-detection and data pipeline, and exploring ML methods to set the approach.</p>
@@ -298,45 +307,48 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
   </div>
 </details>
 
-<details class="project" data-img="opinion" data-v="access">
+<details class="project" data-img="opinion" data-v="ai">
   <summary>
     <div class="thumb"><img src="img/proj/opinion.jpg" alt="Opinion analysis engine" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">Developing an NLP engine for public-opinion analysis</div>
-      <div class="meta">POSTECH, 2020. 3rd CCRP Competition Winner. <span class="cat access">Accessibility</span></div>
+      <div class="title">An NLP opinion-analysis engine for bridging generations</div>
+      <div class="meta">POSTECH, 2020. 3rd CCRP Competition Winner.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: NLP × <span class="cat access">Accessibility</span></p>
     <p>Recommendation algorithms keep splitting public opinion and herding it to one side. I wanted the opposite: a way to see how each generation actually thinks about an issue. In the pre-LLM era, I built this with NLP, classifying sentiment and stance per issue, generation by generation.</p>
     <p>The analysis engine itself was built and working, though never deployed in the field. Proposed as civic technology and selected and awarded in POSTECH’s CCRP (Convergence Civilization Renaissance Production) program.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="robotis" data-v="play">
+<details class="project" data-img="robotis" data-v="robotics">
   <summary>
     <div class="thumb"><img src="img/proj/robotis.jpg" alt="Battle droid" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">Developing an educational humanoid robot for kids</div>
-      <div class="meta">ROBOTIS, 2020. Prototyping Team Internship. <span class="cat play">Play</span></div>
+      <div class="title">Designing an educational coding humanoid robot for kids</div>
+      <div class="meta">ROBOTIS, 2020. Prototyping Team Internship.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Robotics × <span class="cat play">Play</span></p>
     <p>A commercial line of educational humanoid robots, used in competitions like the STEAM Cup where kids code AI into their machines. My work covered the whole prototype: 3D printing, mechanical design, internal algorithms, and the core calibration question, how much power and range of motion the Dynamixel actuators should allow for a robot that looks cool to kids, invites customization, and battles safely.</p>
     <p>I worked on the CEO’s direct new-product team, alongside engineers building autonomous robots, which gave me a wide view of prototyping across the company.</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="tele" data-v="access">
+<details class="project" data-img="tele" data-v="robotics">
   <summary>
     <div class="thumb"><img src="img/proj/tele.jpg" alt="Telepresence robot" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">Developing a remote robot for the COVID era</div>
-      <div class="meta">POSTECH × DGIST, 2020. 8th K-Hackathon Award. <span class="cat access">Accessibility</span></div>
+      <div class="title">A remote robot for the COVID era</div>
+      <div class="meta">POSTECH × DGIST, 2020. 8th K-Hackathon Award.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Robotics × <span class="cat access">Accessibility</span></p>
     <p>When visiting in person became impossible, we built a robot to visit for you: touring a home before renting it, walking a museum from your couch. TurtleBot-based, with LiDAR and 160° cameras viewable in VR, controlled from an app. Pick a destination and it navigates there on its own, avoiding obstacles.</p>
     <p>Awarded at the 8th K-Hackathon immersive-content challenge, and selected for the final live demonstration of the Soljik Challenge.</p>
     <p>My role: leading the team, from setting the direction to the robot design and all of the ROS development.</p>
@@ -344,30 +356,32 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
   </div>
 </details>
 
-<details class="project" data-img="govote" data-v="access">
+<details class="project" data-img="govote" data-v="web">
   <summary>
     <div class="thumb"><img src="img/proj/govote.jpg" alt="Wanna Go Vote" loading="lazy" onerror="this.remove()"></div>
     <div>
-      <div class="title">A voting-information website for first-time voters in their 20s</div>
-      <div class="meta">Independent, 2020. Featured on KBS &amp; MBC radio. <span class="cat access">Accessibility</span></div>
+      <div class="title">A vote-info web app for first-time voters</div>
+      <div class="meta">Independent, 2020. Featured on KBS &amp; MBC radio.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Web × <span class="cat access">Accessibility</span></p>
     <p>As a first-time voter I kept asking why my generation ignores elections. My hypothesis: information that once reached everyone on paper is now scattered across the internet, complex and hard to read. With high-school friends, I built a single website that shows each candidate’s essentials as summary cards.</p>
     <p>It reached 40,000 visitors, with thousands arriving daily at its peak, and was covered by newspapers and 20+ outlets, including radio interviews on KBS and MBC (<a href="https://govote.netlify.app">govote.netlify.app</a>).</p>
     <div class="photos"></div>
   </div>
 </details>
 
-<details class="project" data-img="ledger" data-v="trust">
+<details class="project" data-img="ledger" data-v="blockchain">
   <summary>
     <div class="thumb"><img src="img/proj/ledger.jpg" alt="Donation ledger" loading="lazy" onerror="this.remove()"></div>
     <div>
       <div class="title">Can blockchain solve low donation participation?</div>
-      <div class="meta">POSTECH, 2019. 2nd CCRP Competition Winner. <span class="cat trust">Trust</span></div>
+      <div class="meta">POSTECH, 2019. 2nd CCRP Competition Winner.</div>
     </div>
   </summary>
   <div class="body">
+    <p class="field">Keywords: Blockchain × <span class="cat trust">Trust</span></p>
     <p>I believed low giving comes from low trust in institutions. Operating costs are a fair use of donations; what’s missing is transparency about where the money goes. So I designed a public blockchain ledger that makes a charity’s inflows and outflows verifiable by anyone.</p>
     <p>Built a simple working prototype, and the proposal was selected and awarded in POSTECH’s CCRP program.</p>
     <div class="photos"></div>
