@@ -9,15 +9,14 @@
 
 
 <style>
-
 :root {
   --text:   #1a1a1a;
   --muted:  #757575;
   --border: #e0e0e0;
-  --trust:    #2563eb;  
-  --identity: #db2777; 
-  --access:   #16a34a; 
-  --play:     #ea580c; 
+  --trust:    #2563eb;  /* blue   */
+  --identity: #db2777;  /* pink   */
+  --access:   #16a34a;  /* green  */
+  --play:     #ea580c;  /* orange */
 }
 [data-theme="dark"] {
   --text:   #e8e8e8;
@@ -62,8 +61,9 @@ img { max-width: 100%; }
 
 /* ---- 목록 (Experience, Honors, Skills) ---- */
 .list { list-style: none; padding: 0; margin: 0; }
-.list li { padding: 2px 0; font-size: 14px; }
-.list .year { display: inline-block; width: 84px; color: var(--muted); font-size: 12px; }
+.list li { padding: 2px 0; font-size: 14px; display: flex; gap: 12px; }
+.list .year { width: 84px; flex-shrink: 0; color: var(--muted); font-size: 12px; padding-top: 2px; }
+.list .c { flex: 1; }
 
 /* ---- 프로젝트 ---- */
 .filters { font-size: 13px; padding: 6px 0 2px; }
@@ -84,7 +84,7 @@ img { max-width: 100%; }
 .project .title { font-weight: 600; font-size: 15px; line-height: 1.4; }
 .project .meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
 .cat { font-weight: 700; }
-.note { color: #dc2626; font-size: 12px; }
+.note { color: #dc2626; font-size: 12px; display: inline-block; white-space: nowrap; }
 [data-theme="dark"] .note { color: #f87171; }
 .cat.trust    { color: var(--trust); }
 .cat.identity { color: var(--identity); }
@@ -99,7 +99,6 @@ img { max-width: 100%; }
 .project[open] .body { animation: open 0.18s ease; }
 @keyframes open { from { opacity: 0; } }
 .project .body p { font-size: 14px; color: var(--text); }
-
 /* 본문 사진: 높이만 고정, 너비는 원본 비율대로. 클릭하면 크게 보기 */
 .project .photos { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
 .project .photos img { height: 100px; width: auto; cursor: zoom-in; display: block; }
@@ -166,25 +165,24 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
 
 <h2>Experience</h2>
 <ul class="list">
-  <li><span class="year">2021–</span>Lutra Inc., Founder</li>
-  <li><span class="year">2021</span>Hyundai Motor Company (HQ), AI/ML Intern</li>
-  <li><span class="year">2020</span>ROBOTIS, Robotics Prototyping Intern</li>
+  <li><span class="year">2021–</span><span class="c">Lutra Inc., Founder</span></li>
+  <li><span class="year">2021</span><span class="c">Hyundai Motor Company, ML Intern</span></li>
+  <li><span class="year">2020</span><span class="c">ROBOTIS, Robotics Prototyping Intern</span></li>
 </ul>
 
 <h2>Honors &amp; Scholarships</h2>
 <ul class="list">
-  <li><span class="year">2025</span>Talent Award of Korea <span class="note">Representative Speaker</span></li>
-  <li><span class="year">2024</span>Proud POSTECHIAN with Highest Honor</li>
-  <li><span class="year">2023</span>CES Innovation Award Honoree <span class="note">Youngest Korean Honoree</span></li>
-  <li><span class="year">2021–25</span>Presidential Science Scholarship</li>
-  <li><span class="year">2020</span>Undergraduate Research Program, Excellence Award</li>
-  <li><span class="year">2019–20</span>POSTECH Jigok Full-Tuition Scholarship</li>
+  <li><span class="year">2025</span><span class="c">Talent Award of Korea <span class="note">Representative Speaker</span></span></li>
+  <li><span class="year">2024</span><span class="c">Proud POSTECHIAN with Highest Honor</span></li>
+  <li><span class="year">2023</span><span class="c">CES Innovation Award Honoree <span class="note">Youngest Korean Honoree</span></span></li>
+  <li><span class="year">2021–25</span><span class="c">Presidential Science Scholarship</span></li>
+  <li><span class="year">2020</span><span class="c">Undergraduate Research Program, Excellence Award</span></li>
+  <li><span class="year">2019–20</span><span class="c">POSTECH Jigok Full-Tuition Scholarship</span></li>
 </ul>
 
 <h2 id="projects">Projects</h2>
 <p class="small">Twelve projects, one formula: technology &times; <span class="cat trust">trust</span>, <span class="cat identity">identity</span>, <span class="cat access">accessibility</span>, or <span class="cat play">play</span>.</p>
 <div class="filters">
-  <input id="search" type="search" placeholder="search…" aria-label="Search projects">
   <button class="on" data-v="all">All</button>
   <button data-v="trust">Trust</button>
   <button data-v="identity">Identity</button>
@@ -192,6 +190,7 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
   <button data-v="play">Play</button>
 </div>
 
+<!-- ============ PROJECT TEMPLATE (복사해서 쓰세요) ============ -->
 <details class="project" data-img="hoa" data-v="trust">
   <summary>
     <div class="thumb"><img src="img/proj/hoa.jpg" alt="HOA Camera" loading="lazy" onerror="this.remove()"></div>
@@ -206,6 +205,7 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
     <div class="photos"></div>
   </div>
 </details>
+<!-- ============ /PROJECT TEMPLATE ============ -->
 
 <details class="project" data-img="artist" data-v="identity">
   <summary>
@@ -397,10 +397,10 @@ footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 12p
 
 <h2>Skills</h2>
 <ul class="list">
-  <li><span class="year">Languages</span>Python, C, C++, JavaScript</li>
-  <li><span class="year">ML/AI</span>PyTorch, Stable Diffusion (LoRA, ControlNet), LLM APIs</li>
-  <li><span class="year">Platforms</span>Ubuntu, ROS, Arduino, Raspberry Pi</li>
-  <li><span class="year">Tools</span>Fusion 360, LaTeX, Premiere Pro, 3D Printing</li>
+  <li><span class="year">Languages</span><span class="c">Python, C, C++, JavaScript</span></li>
+  <li><span class="year">ML/AI</span><span class="c">PyTorch, Stable Diffusion (LoRA, ControlNet), LLM APIs</span></li>
+  <li><span class="year">Platforms</span><span class="c">Ubuntu, ROS, Arduino, Raspberry Pi</span></li>
+  <li><span class="year">Tools</span><span class="c">Fusion 360, LaTeX, Premiere Pro, 3D Printing</span></li>
 </ul>
 
 <footer>
@@ -425,14 +425,10 @@ document.getElementById("theme-toggle").onclick = function () {
 var filter = null;
 var buttons = document.querySelectorAll(".filters button");
 var projects = document.querySelectorAll(".project");
-var search = document.getElementById("search");
 
 function apply() {
-  var q = search.value.trim().toLowerCase();
   projects.forEach(function (p) {
-    var okFilter = !filter || p.getAttribute("data-v") === filter;
-    var okSearch = !q || p.textContent.toLowerCase().indexOf(q) !== -1;
-    p.classList.toggle("hide", !(okFilter && okSearch));
+    p.classList.toggle("hide", filter && p.getAttribute("data-v") !== filter);
   });
 }
 buttons.forEach(function (b) {
@@ -444,7 +440,6 @@ buttons.forEach(function (b) {
     apply();
   };
 });
-search.oninput = apply;
 
 // 본문 사진 자동 로드: img/proj/이름2.jpg, 이름3.jpg ... 연속 번호로 있는 만큼 표시
 // (프로젝트의 data-img가 파일명 기준. data-video="번호:유튜브ID" 면 그 번호 사진 클릭 시 영상 재생)
